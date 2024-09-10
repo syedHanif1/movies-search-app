@@ -10,7 +10,9 @@ export const useMovies = (title: string, page: number = 1) => {
   return useQuery<MovieDataResponse, Error>({
     queryKey: ["movies", title, page],
     queryFn: async () => {
+      console.log("title", title);
       if (!title) {
+        setMovies([]);
         return defaultMovieResponse;
       }
 

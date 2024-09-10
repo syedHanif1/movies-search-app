@@ -30,11 +30,11 @@ const AppBar = ({ onClose }: AppDrawerProps) => {
               variant="text"
               size="large"
               sx={{
+                color: "white",
                 fontSize: 16,
-                color: pathname === AppRoutes[item] ? "#F0F0F0" : "#B0B0B0",
-                fontWeight: pathname === AppRoutes[item] ? "600" : "400",
-                background: pathname === AppRoutes[item] ? "#f9f9f9" : "none",
+                fontWeight: pathname === AppRoutes[item] ? "700" : "400",
                 transition: "background 0.3s ease, color 0.3s ease",
+                borderBottom: pathname === AppRoutes[item] ? "1px solid #1C8394" : "",
                 "&:hover": { color: "#FFFFFF" },
               }}
               label={item}

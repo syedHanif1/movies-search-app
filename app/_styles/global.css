@@ -23,7 +23,7 @@ body {
 
 .boldLabel {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 60px;
 }
 
 /* Movie card */
@@ -53,7 +53,7 @@ body {
 }
 
 .movie-card-header {
-  padding: 16px;
+  padding: 6px;
   height: 20%;
 }
 

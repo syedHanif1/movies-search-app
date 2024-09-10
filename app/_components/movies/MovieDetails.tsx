@@ -23,7 +23,7 @@ const MovieDetails = ({ movieId, clearMovieId }: { movieId: string; clearMovieId
             <div className="movie-header-overlay" />
           </div>
           <Box sx={{ p: 1 }}>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
               {[data.Year, data.Runtime, ...data.Genre.split(",").filter((e) => e !== "N/A")].map((genre) => (
                 <Chip label={genre} key={genre} sx={{ color: "white", borderRadius: 2 }} variant="outlined" />
               ))}
