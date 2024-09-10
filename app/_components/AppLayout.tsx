@@ -1,9 +1,7 @@
 "use client";
 import React, { useState, ReactNode } from "react";
 import { QueryClientProvider } from "@tanstack/react-query";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Toolbar from "@mui/material/Toolbar";
+import { Box, CssBaseline, Toolbar, } from "@mui/material";
 import AppDrawer from "./AppDrawer";
 import LoadingWidget from "./LoadingWidget";
 import AppBar from "./AppBar";

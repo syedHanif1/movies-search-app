@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AppLayout from "./_components/AppLayout";
 import "@/app/_styles/global.css";
   
-export const metadata: Metadata = { title: "Movie Search App" };
+export const metadata: Metadata = { title: "SeekMovie" };
 
 export default function RootLayout({
   children,
@@ -11,9 +11,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ padding: '0px', margin: '0px', backgroundColor: '#000B0D' }}>
+      <body style={{ padding: '0px', margin: '0px', }}>
         <AppLayout>{children}</AppLayout>
       </body>
-    </html>
+  </html>
   );
 }

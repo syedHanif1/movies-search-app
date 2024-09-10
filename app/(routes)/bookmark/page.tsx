@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 import { useRouter } from "next/navigation";
-import { Box, Typography, Container } from "@mui/material";  
+import { Box, Typography, Container } from "@mui/material";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MovieList from "@/app/_components/movies/MovieList";
-import { useBookmarksStore } from "@/app/_store/useBookmarksStore";
 import AppRoutes from "@/app/_lib/appRoutes";
 import Button from "@/app/_components/Button";
+import { useBookmarksStore } from "@/app/_store/useBookmarksStore";
 
 const Bookmark = () => {
   const router = useRouter();
@@ -18,10 +18,10 @@ const Bookmark = () => {
       <Container sx={{ textAlign: "center", my: 5 }}>
         <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
           <BookmarkIcon sx={{ fontSize: 80, color: "white", mb: 2 }} />
-          <Typography variant="h6" gutterBottom sx={{ color: "white" }}>
+          <Typography variant="h6" gutterBottom>
             Your bookmarks list is empty!
           </Typography>
-          <Typography variant="body1" color="text.secondary" paragraph sx={{ color: "white" }}>
+          <Typography variant="body1" color="text.secondary" paragraph>
             It looks like you haven't added any movies to your bookmarks yet. Browse now and start adding your favorite movies!
           </Typography>
           <Button onClick={handleNavigate} label="Browse Movies" />

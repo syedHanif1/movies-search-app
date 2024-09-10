@@ -1,11 +1,6 @@
 import React from "react";
 import { useRouter } from "next/navigation";
-import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Typography from "@mui/material/Typography";
+import { Box, Divider, Drawer, List, ListItem, Typography } from "@mui/material";
 import AppRoutes from "../_lib/appRoutes";
 import Button from "./Button";
 
@@ -22,7 +17,7 @@ const AppDrawer = ({ open, onClose }: AppDrawerProps) => {
   const drawer = (
     <Box onClick={onClose} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        Movie Search App
+        SeekMovie
       </Typography>
       <Divider />
       <List>

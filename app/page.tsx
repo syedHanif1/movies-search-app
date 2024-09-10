@@ -5,7 +5,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import "@/app/_styles/global.css";
 
-export default function Home() {
+export default function Page() {
   // default redirection to /movies
   redirect("/movies");
 }

@@ -17,7 +17,11 @@ const Button: React.FC<CustomProps> = (props) => {
 
   const { label, ...rest } = mergedProps;
 
-  return <MuiButton {...rest}>{label}</MuiButton>;
+  return (
+    <MuiButton {...rest} style={{ backgroundColor: "#1C8394", textTransform: "capitalize" }}>
+      {label}
+    </MuiButton>
+  );
 };
 
 export default Button;

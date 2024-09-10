@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
+import { Grid } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 import MovieCardSkeletonLoader from "./MovieCardSkeletonLoad";
 import MovieCard from "./MovieCard";
