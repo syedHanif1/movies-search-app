@@ -11,7 +11,6 @@ import { useBookmarksStore } from "@/app/_store/useBookmarksStore";
 const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: string) => void }) => {
   const { bookmarks, addBookmark, removeBookmark } = useBookmarksStore();
   const [isBookmarked, setIsBookmarked] = useState(bookmarks.some((b) => b.imdbID === movie.imdbID));
-
   const [imageSrc, setImageSrc] = useState<string>(movie.Poster.toString());
 
   const handleImageError = () => setImageSrc(FallbackImage.src);
@@ -35,7 +34,7 @@ const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: str
             {movie.Title}
           </Typography>
         }
-        action={<IconButton onClick={handleBookmarkToggle} IconComponent={isBookmarked ? BookmarkIcon : BookmarkBorderIcon} iconStyle={{ color: "green" }} />}
+        action={<IconButton onClick={handleBookmarkToggle} IconComponent={isBookmarked ? BookmarkIcon : BookmarkBorderIcon} iconStyle={{ color: isBookmarked ? "#1C8394" : "gray" }} />}
         className="movie-card-header"
       />
     </Card>

@@ -29,12 +29,7 @@ const MovieDetails = ({ movieId, clearMovieId }: { movieId: string; clearMovieId
               ))}
             </Stack>
             <Typography variant="body2" sx={{ color: "white", pt: 1 }}>
-              Actors:{" "}
-              {data.Actors.split(",").map((actor) => (
-                <span className="actor-name" key={actor}>
-                  {actor}
-                </span>
-              ))}
+              Actors: <span className="actor-name">{data.Actors}</span>
             </Typography>
             <Typography variant="body2" sx={{ color: "white", pt: 1 }}>
               Plot: {data.Plot}

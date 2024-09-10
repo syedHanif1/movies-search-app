@@ -8,6 +8,9 @@ interface MovieStore {
   movies: Movie[];
   setMovies: (movies: Movie[]) => void;
 
+  error: string | undefined;
+  setError: (error: string | undefined) => void;
+
   searchTerm: string;
   setSearchTerm: (term: string) => void;
 
@@ -27,6 +30,9 @@ const useMovieStore = create<MovieStore>((set) => ({
 
   movies: [],
   setMovies: (movies) => set({ movies }),
+
+  error: undefined,
+  setError: (error) => set(() => ({ error })),
 
   searchTerm: "",
   setSearchTerm: (term) => set(() => ({ searchTerm: term })),

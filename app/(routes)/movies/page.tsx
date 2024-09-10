@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, ChangeEvent } from "react";
-import { Alert, Typography } from "@mui/material";
+import { Alert, Box, Typography, InputAdornment } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 import { useMovies } from "@/app/_hooks/useMovies";
 import TextInput from "@/app/_components/Input";
 import useDebounce from "@/app/_hooks/useDebounce";
@@ -8,7 +9,7 @@ import MovieList from "@/app/_components/movies/MovieList";
 import useMovieStore from "@/app/_store/useMovieStore";
 
 const Movies = () => {
-  const { movies, searchTerm, page, hasMore, setMovies, setPage, setHasMore, setSearchTerm } = useMovieStore();
+  const { movies, searchTerm, page, hasMore, error, setMovies, setPage, setHasMore, setSearchTerm, setError } = useMovieStore();
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
   const { data, isFetching } = useMovies(debouncedSearchTerm, page);
 
@@ -16,9 +17,10 @@ const Movies = () => {
     if (data?.totalResults && movies.length >= parseInt(data.totalResults)) {
       setHasMore(false);
     }
-  }, [movies.length]);
+  }, [movies.length, data?.totalResults]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    setError(undefined);
     setMovies([]);
     setPage(1);
     setHasMore(true);
@@ -28,18 +30,18 @@ const Movies = () => {
   const loadMoreMovies = () => setPage(page + 1);
 
   return (
-    <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Search for movie titles to display below
+    <Box className={movies.length === 0 ? "centeredContainer" : "shrinkedContainer"}>
+      <Typography variant="h6" gutterBottom className={movies.length === 0 ? "boldLabel" : ""}>
+        What are you looking for?
       </Typography>
-      <TextInput value={searchTerm} onChange={handleSearch} label={"Search For Movies"} placeholder="What are you looking for?" />
-      <MovieList movies={movies} isFetching={isFetching} loadMore={loadMoreMovies} hasMore={hasMore} />
-      {data?.Error && (
+      <TextInput value={searchTerm} onChange={handleSearch} label={"Search For Movies"} placeholder="Title" icon={<SearchIcon />} />
+      {movies.length > 0 && <MovieList movies={movies} isFetching={isFetching} loadMore={loadMoreMovies} hasMore={hasMore} />}
+      {error && (
         <Alert severity="error" sx={{ my: 5, fontSize: 16 }}>
-          {data?.Error}
+          {error}
         </Alert>
       )}
-    </React.Fragment>
+    </Box>
   );
 };
 

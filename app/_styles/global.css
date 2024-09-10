@@ -3,6 +3,29 @@ body {
   margin: 0px;
 }
 
+/* movies page */
+
+.centeredContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.shrinkedContainer {
+  display: block;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.boldLabel {
+  font-weight: bold;
+  font-size: 50px;
+}
+
 /* Movie card */
 .movie-card {
   height: 400px;
@@ -24,10 +47,9 @@ body {
 }
 
 .movie-card-title {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .movie-card-header {
