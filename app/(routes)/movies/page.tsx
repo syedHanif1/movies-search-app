@@ -26,6 +26,7 @@ const Movies = () => {
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     // clear states on search
+    setMovies([])
     setError(undefined);
     setPage(1);
     setHasMore(true);
