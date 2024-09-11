@@ -83,3 +83,20 @@ body {
 .actor-name {
   color: #1c8394;
 }
+
+
+/* Customize Paper */
+.movieSearchForm {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 2px solid #1C8394;
+  border-radius: 5px !important;
+  overflow: hidden !important;
+  height: 55px;
+}
+
+.movieSearchInput {
+  margin-left: 8px;
+  flex: 1;
+}
