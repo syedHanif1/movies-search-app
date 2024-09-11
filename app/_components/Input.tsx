@@ -2,7 +2,7 @@ import React from "react";
 import { InputBase, InputBaseProps } from "@mui/material";
 
 type CustomProps = InputBaseProps & {
-  // add custom props here
+  // add custom props here like default size, border color etc
 };
 
 const defaultInputProps: Partial<CustomProps> = {

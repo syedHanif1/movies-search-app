@@ -21,7 +21,10 @@ interface MovieStore {
   setHasMore: (hasMore: boolean) => void;
 }
 
+
+// handle states for movies
 const useMovieStore = create<MovieStore>((set) => ({
+  // while viewing movie details, if api is called for a single movie that record is cached againt its id, so the next time api wont be called.
   cachedMovies: {},
   setCachedMovie: (imdbID, data) =>
     set((state) => ({

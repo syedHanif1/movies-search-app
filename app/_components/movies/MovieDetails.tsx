@@ -14,6 +14,8 @@ const MovieDetails = ({ movieId, clearMovieId }: { movieId: string; clearMovieId
     if (data && data.Poster && data.Poster !== "N/A") setImageSrc(data.Poster.toString());
   }, [data]);
 
+  // can show more detials using object dot notation (intellisense)
+
   return (
     <Modal open={true} onClose={clearMovieId}>
       {isLoading && (

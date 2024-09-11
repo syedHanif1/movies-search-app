@@ -1,6 +1,8 @@
 import axios from "../_lib/axios";
 import { MovieDataResponse, MovieDetailResponse } from "../_types/Movie";
 
+
+// get all movies and get movie details against a movie id
 const MovieService = {
   getMovies: async (title: string, page: number): Promise<MovieDataResponse> => {
     try {

@@ -11,6 +11,7 @@ interface AppLayoutProps {
   children?: ReactNode;
 }
 
+// Basic app layout including App bar and sidebar
 const AppLayout = ({ children }: AppLayoutProps) => {
   const [mobileOpen, setMobileOpen] = useState<boolean>(false);
   const handleDrawerToggle = () => setMobileOpen((prev) => !prev);

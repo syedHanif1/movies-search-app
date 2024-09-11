@@ -8,6 +8,8 @@ interface BookmarkState {
   removeBookmark: (imdbID: string) => void;
 }
 
+// bookmark store: Handle movies that are bookmarked in localstorage
+
 export const useBookmarksStore = create<BookmarkState>()(
   persist(
     (set) => ({

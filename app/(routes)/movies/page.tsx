@@ -14,14 +14,17 @@ const Movies = () => {
   const { data, isFetching } = useMovies(debouncedSearchTerm, page);
 
   useEffect(() => {
+    // remove movies when search term is empty
     if (!searchTerm) setMovies([]);
   }, [searchTerm]);
 
   useEffect(() => {
+    // trigger the next page api based on the total records and current page
     if (data?.totalResults && movies.length >= parseInt(data.totalResults)) setHasMore(false);
   }, [movies.length, data?.totalResults]);
 
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+    // clear states on search
     setError(undefined);
     setMovies([]);
     setPage(1);

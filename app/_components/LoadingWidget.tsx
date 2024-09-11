@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Router from "next/router";
 import Loader from "./Loader";
 
+// loading widget if the module (page) is loading
 const LoadingWidget: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
 

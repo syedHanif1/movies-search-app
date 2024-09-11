@@ -5,12 +5,12 @@ import { MovieDataResponse, MovieDetailResponse } from "../_types/Movie";
 
 const defaultMovieResponse = { Search: [], totalResults: "", Response: "", Error: "" };
 
+// return all movies based on search term, can accept page number and returns total records
 export const useMovies = (title: string, page: number = 1) => {
   const { movies, setMovies, setError } = useMovieStore();
   return useQuery<MovieDataResponse, Error>({
     queryKey: ["movies", title, page],
     queryFn: async () => {
-      console.log("title", title);
       if (!title) {
         setMovies([]);
         return defaultMovieResponse;
@@ -38,6 +38,7 @@ export const useMovies = (title: string, page: number = 1) => {
   });
 };
 
+// return data for a single movie against movie id
 export const useMovie = (movieId: string) => {
   const { cachedMovies, setCachedMovie } = useMovieStore();
 

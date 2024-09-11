@@ -1,6 +1,7 @@
 "use client";
 import defaultAxios from "axios";
 
+// axios interceptor
 const axios = defaultAxios.create({
   baseURL: process.env.NEXT_PUBLIC_OMDB_BASE_URL!,
   params: {

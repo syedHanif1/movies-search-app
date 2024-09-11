@@ -7,6 +7,8 @@ export interface MovieDataResponse {
 
 export type MovieDetailResponse = Movie;
 
+
+// interface for movie obj
 export interface Movie {
   Title: string;
   Year: string;

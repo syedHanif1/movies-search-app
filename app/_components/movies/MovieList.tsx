@@ -14,6 +14,7 @@ interface MovieListProps {
 }
 
 const MovieList: React.FC<MovieListProps> = ({ movies = [], isFetching, loadMore, hasMore }) => {
+  // state to store the movie id to view details
   const [viewMovieDetails, setViewMovieDetail] = useState<string | null>(null);
 
   if (!movies.length) return null;
@@ -33,6 +34,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies = [], isFetching, loadMore
           </Grid>
         )}
       </Grid>
+      {/* Alert Modal to view details of a movie  */}
       {viewMovieDetails && <MovieDetails movieId={viewMovieDetails} clearMovieId={() => setViewMovieDetail(null)} />}
     </InfiniteScroll>
   );

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+// add a debouncing effect on the search fields 
 const useDebounce = <T>(value: T, delay: number = 500): T => {
   const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
