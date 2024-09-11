@@ -15,7 +15,6 @@ const MovieDetails = ({ movieId, clearMovieId }: { movieId: string; clearMovieId
   }, [data]);
 
   // can show more detials using object dot notation (intellisense)
-
   return (
     <Modal open={true} onClose={clearMovieId}>
       {isLoading && (

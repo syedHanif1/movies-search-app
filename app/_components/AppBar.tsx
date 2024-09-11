@@ -29,7 +29,7 @@ const AppBar = ({ onClose }: AppDrawerProps) => {
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {Object.keys(AppRoutes).map((item: string, index: number) => (
-            <Badge badgeContent={index == 1 ? bookmarks.length : 0} color="success">
+            <Badge invisible={index == 0} badgeContent={bookmarks.length} color="success" showZero>
               <Button
                 variant="text"
                 size="large"

@@ -39,7 +39,7 @@ const Movies = () => {
       <Typography variant="h6" gutterBottom className={movies.length === 0 ? "boldLabel" : ""}>
         What are you looking for?
       </Typography>
-      <Paper component="form" className="movieSearchForm">
+      <Paper className="movieSearchForm">
         <TextInput value={searchTerm} onChange={handleSearch} placeholder="Title" className="movieSearchInput" />
         <Button startIcon={isFetching ? <Loader sx={{ color: "white" }} size={20} /> : null} label={isFetching ? "Searching" : "Search"} sx={{ height: "100%", minWidth: { xs: "100px", sm: "130px" }, borderRadius: 0 }} />
       </Paper>

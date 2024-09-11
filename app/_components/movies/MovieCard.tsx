@@ -19,7 +19,6 @@ const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: str
   const handleImageError = () => setImageSrc(FallbackImage.src);
 
   const handleSnackbarClose = (event: any) => {
-    event.stopPropagation();
     setSnackbarState((prevState) => ({ ...prevState, open: false }));
   };
 
@@ -49,7 +48,7 @@ const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: str
         action={<IconButton onClick={handleBookmarkToggle} IconComponent={isBookmarked ? BookmarkIcon : BookmarkBorderIcon} iconStyle={{ color: isBookmarked ? "#1C8394" : "gray" }} />}
         className="movie-card-header"
       />
-      <Snackbar open={snackbarState.open} autoHideDuration={3000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+      <Snackbar open={snackbarState.open} autoHideDuration={2000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
         <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: "100%", mt: 6 }}>
           {snackbarState.message}
         </Alert>
