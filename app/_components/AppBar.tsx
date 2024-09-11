@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import AppRoutes from "../_lib/appRoutes";
 import Button from "./Button";
 import IconButton from "./IconButton";
+import { useBookmarksStore } from "../_store/useBookmarksStore";
+import Badge from "@mui/material/Badge";
 
 interface AppDrawerProps {
   onClose: () => void;
@@ -14,6 +16,7 @@ interface AppDrawerProps {
 const AppBar = ({ onClose }: AppDrawerProps) => {
   const router = useRouter();
   const pathname = usePathname();
+  const { bookmarks } = useBookmarksStore();
 
   const handleNavigate = (path: string) => router.push(path);
 
@@ -26,21 +29,23 @@ const AppBar = ({ onClose }: AppDrawerProps) => {
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {Object.keys(AppRoutes).map((item: string, index: number) => (
-            <Button
-              variant="text"
-              size="large"
-              sx={{
-                color: "white",
-                fontSize: 16,
-                fontWeight: pathname === AppRoutes[item] ? "700" : "400",
-                transition: "background 0.3s ease, color 0.3s ease",
-                borderBottom: pathname === AppRoutes[item] ? "1px solid #1C8394" : "",
-                "&:hover": { color: "#FFFFFF" },
-              }}
-              label={item}
-              key={index}
-              onClick={() => handleNavigate(AppRoutes[item])}
-            />
+            <Badge badgeContent={index == 1 ? bookmarks.length : 0} color="success">
+              <Button
+                variant="text"
+                size="large"
+                sx={{
+                  color: "white",
+                  fontSize: 16,
+                  fontWeight: pathname === AppRoutes[item] ? "700" : "400",
+                  transition: "background 0.3s ease, color 0.3s ease",
+                  borderBottom: pathname === AppRoutes[item] ? "1px solid #1C8394" : "",
+                  "&:hover": { color: "#FFFFFF" },
+                }}
+                label={item}
+                key={index}
+                onClick={() => handleNavigate(AppRoutes[item])}
+              />
+            </Badge>
           ))}
         </Box>
       </Toolbar>

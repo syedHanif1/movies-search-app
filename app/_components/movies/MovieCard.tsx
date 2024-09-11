@@ -1,10 +1,10 @@
 import React, { useState, MouseEvent } from "react";
 import { Card, CardHeader } from "@mui/material";
+import { CardMedia, Typography, Snackbar, Alert } from "@mui/material";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import IconButton from "../IconButton";
 import FallbackImage from "../../_assets/fallback.png";
-import { CardMedia, Typography } from "@mui/material";
 import { Movie } from "../../_types/Movie";
 import { useBookmarksStore } from "@/app/_store/useBookmarksStore";
 
@@ -13,16 +13,28 @@ const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: str
   const [isBookmarked, setIsBookmarked] = useState(bookmarks.some((b) => b.imdbID === movie.imdbID));
   const [imageSrc, setImageSrc] = useState<string>(movie.Poster.toString());
 
+  // State to manage both Snackbar visibility and message
+  const [snackbarState, setSnackbarState] = useState<{ open: boolean; message: string }>({ open: false, message: "" });
+
   const handleImageError = () => setImageSrc(FallbackImage.src);
+
+  const handleSnackbarClose = (event: any) => {
+    event.stopPropagation();
+    setSnackbarState((prevState) => ({ ...prevState, open: false }));
+  };
 
   const handleBookmarkToggle = (event: MouseEvent) => {
     event.stopPropagation();
-    if (isBookmarked) {
-      removeBookmark(movie.imdbID);
-    } else {
+    const newIsBookmarked = !isBookmarked;
+    setIsBookmarked(newIsBookmarked);
+
+    if (newIsBookmarked) {
       addBookmark(movie);
+      setSnackbarState({ open: true, message: "Added to bookmarks" });
+    } else {
+      removeBookmark(movie.imdbID);
+      setSnackbarState({ open: true, message: "Removed from bookmarks" });
     }
-    setIsBookmarked(!isBookmarked);
   };
 
   return (
@@ -37,6 +49,11 @@ const MovieCard = ({ movie, viewDetails }: { movie: Movie; viewDetails: (id: str
         action={<IconButton onClick={handleBookmarkToggle} IconComponent={isBookmarked ? BookmarkIcon : BookmarkBorderIcon} iconStyle={{ color: isBookmarked ? "#1C8394" : "gray" }} />}
         className="movie-card-header"
       />
+      <Snackbar open={snackbarState.open} autoHideDuration={3000} onClose={handleSnackbarClose} anchorOrigin={{ vertical: "top", horizontal: "right" }}>
+        <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: "100%", mt: 6 }}>
+          {snackbarState.message}
+        </Alert>
+      </Snackbar>
     </Card>
   );
 };

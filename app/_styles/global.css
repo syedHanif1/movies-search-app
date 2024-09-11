@@ -100,3 +100,8 @@ body {
   margin-left: 8px;
   flex: 1;
 }
+
+
+.MuiBadge-badge {
+  margin-top: 10px !important;
+}

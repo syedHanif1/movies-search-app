@@ -7,6 +7,7 @@ import useDebounce from "@/app/_hooks/useDebounce";
 import MovieList from "@/app/_components/movies/MovieList";
 import useMovieStore from "@/app/_store/useMovieStore";
 import Button from "@/app/_components/Button";
+import Loader from "@/app/_components/Loader";
 
 const Movies = () => {
   const { movies, searchTerm, page, hasMore, error, setMovies, setPage, setHasMore, setSearchTerm, setError } = useMovieStore();
@@ -40,7 +41,7 @@ const Movies = () => {
       </Typography>
       <Paper component="form" className="movieSearchForm">
         <TextInput value={searchTerm} onChange={handleSearch} placeholder="Title" className="movieSearchInput" />
-        <Button label="Search" sx={{ height: "100%", minWidth: { xs: "100px", sm: "130px" }, borderRadius: 0 }} />
+        <Button startIcon={isFetching ? <Loader sx={{ color: "white" }} size={20} /> : null} label={isFetching ? "Searching" : "Search"} sx={{ height: "100%", minWidth: { xs: "100px", sm: "130px" }, borderRadius: 0 }} />
       </Paper>
       {movies.length > 0 && <MovieList movies={movies} isFetching={isFetching} loadMore={loadMoreMovies} hasMore={hasMore} />}
       {error && (

@@ -1,8 +1,10 @@
 import React from "react";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, CircularProgressProps } from "@mui/material";
 
-const Loader = () => {
-  return <CircularProgress />;
+interface LoaderProps extends CircularProgressProps {}
+
+const Loader: React.FC<LoaderProps> = (props) => {
+  return <CircularProgress {...props} />;
 };
 
 export default Loader;
