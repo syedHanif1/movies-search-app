@@ -16,8 +16,8 @@ const Movies = () => {
 
   useEffect(() => {
     // remove movies when search term is empty
-    if (!searchTerm) setMovies([]);
-  }, [searchTerm]);
+    if (!debouncedSearchTerm) setMovies([]);
+  }, [debouncedSearchTerm]);
 
   useEffect(() => {
     // trigger the next page api based on the total records and current page
@@ -27,7 +27,6 @@ const Movies = () => {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     // clear states on search
     setError(undefined);
-    setMovies([]);
     setPage(1);
     setHasMore(true);
     setSearchTerm(e.target.value);

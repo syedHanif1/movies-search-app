@@ -12,7 +12,6 @@ export const useMovies = (title: string, page: number = 1) => {
     queryKey: ["movies", title, page],
     queryFn: async () => {
       if (!title) {
-        setMovies([]);
         return defaultMovieResponse;
       }
 
