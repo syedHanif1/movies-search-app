@@ -15,16 +15,15 @@ const Modal = ({ open, children, onClose }: ModalProps) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const style = {
-    position: "absolute" as "absolute",
+    position: "absolute",
     top: "50%",
     left: "50%",
+    minHeight: "50vh",
     transform: "translate(-50%, -50%)",
     width: isMobile ? "90%" : 500,
-    height: isMobile ? "80%" : 650,
     backgroundColor: "rgb(55 53 53)",
     borderRadius: 2,
     maxWidth: "90vw",
-    maxHeight: "80vh",
     overflow: "auto",
   };
 

@@ -16,7 +16,11 @@ const MovieDetails = ({ movieId, clearMovieId }: { movieId: string; clearMovieId
 
   return (
     <Modal open={true} onClose={clearMovieId}>
-      {isLoading && <Loader />}
+      {isLoading && (
+        <Box sx={{ display: "flex", height: "55vh", alignItems: "center", justifyContent: "center" }}>
+          <Loader />
+        </Box>
+      )}
       {data && (
         <>
           <div className="movie-header" style={{ backgroundImage: `url(${imageSrc})` }}>
